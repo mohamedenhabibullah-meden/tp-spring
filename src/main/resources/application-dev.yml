@@ -1,13 +1,17 @@
+# application-dev.yml
 spring:
   datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
-  h2:
-    console:
-      enabled: true
+    url: jdbc:mysql://localhost:3306/productdb_dev?useSSL=false&serverTimezone=UTC
+    username: root
+    password: your_mysql_password
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  sql:
+    init:
+      mode: always   # pour exécuter des scripts SQL au démarrage si besoin

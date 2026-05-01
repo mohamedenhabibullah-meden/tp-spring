@@ -1,55 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تفاصيل المنتج</title>
-    <!-- Bootstrap 5 CSS -->
+    <title>Détails du produit</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons (اختياري لإضافة أيقونات) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
-<body class="bg-light">
-
-<div class="container py-5">
-    <!-- بطاقة لعرض التفاصيل -->
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow-sm">
-                <div class="card-header bg-primary text-white">
-                    <h4 class="mb-0"><i class="bi bi-info-circle"></i> تفاصيل المنتج</h4>
-                </div>
-                <div class="card-body">
-                    <table class="table table-borderless">
-                        <tr>
-                            <th style="width: 30%"><i class="bi bi-hash"></i> ID :</th>
-                            <td th:text="${product.id}">--</td>
-                        </tr>
-                        <tr>
-                            <th><i class="bi bi-tag"></i> الاسم :</th>
-                            <td th:text="${product.name}">--</td>
-                        </tr>
-                        <tr>
-                            <th><i class="bi bi-currency-euro"></i> السعر :</th>
-                            <td><span th:text="${#numbers.formatDecimal(product.price, 1, 'COMMA')}"></span> €</td>
-                        </tr>
-                        <tr>
-                            <th><i class="bi bi-card-text"></i> الوصف :</th>
-                            <td th:text="${product.description} ?: 'لا يوجد وصف'">--</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="card-footer text-center">
-                    <a href="/products" class="btn btn-secondary">
-                        <i class="bi bi-arrow-left"></i> العودة إلى القائمة
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Bootstrap JS (اختياري للتفاعلات) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<body class="container mt-4">
+<h2>Détails du produit</h2>
+<table class="table table-bordered">
+    <tr><th>ID</th><td th:text="${product.id}">--</td></tr>
+    <tr><th>Nom</th><td th:text="${product.name}">--</td></tr>
+    <tr><th>Prix (MRU)</th><td th:text="${product.price}">--</td></tr>
+    <tr><th>Description</th><td th:text="${product.description}">--</td></tr>
+</table>
+<a href="/products" class="btn btn-secondary">Retour</a>
 </body>
 </html>

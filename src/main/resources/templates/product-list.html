@@ -13,15 +13,7 @@
     <thead>
     <tr><th>ID</th><th>Nom</th><th>Prix</th><th>Description</th><th>Action</th></tr>
     </thead>
-    <!--    <tbody>-->
-    <!--    <tr th:each="product : ${products}">-->
-    <!--        <td th:text="${product.id}"></td>-->
-    <!--        <td th:text="${product.name}"></td>-->
-    <!--        <td th:text="${product.price}"></td>-->
-    <!--        <td th:text="${product.description}"></td>-->
-    <!--        <td><a th:href="@{/products/delete/{id}(id=${product.id})}">Supprimer</a></td>-->
-    <!--    </tr>-->
-    <!--    </tbody>-->
+
     <tbody>
     <tr th:each="product : ${products}">
         <td th:text="${product.id}" class="fw-bold"></td>
