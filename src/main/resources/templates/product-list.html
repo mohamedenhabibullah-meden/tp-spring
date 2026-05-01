@@ -28,13 +28,7 @@
         <td th:text="${product.name}"></td>
         <td th:text="${product.price}"></td>
         <td th:text="${product.description}"></td>
-<!--        <td>-->
-<!--            <a th:href="@{/products/edit/{id}(id=${product.id})}"-->
-<!--               class="btn btn-warning btn-sm">Modifier</a>-->
-<!--            <a th:href="@{/products/delete/{id}(id=${product.id})}"-->
-<!--               class="btn btn-danger btn-sm"-->
-<!--               onclick="return confirm('Supprimer ce produit ?');">Supprimer</a>-->
-<!--        </td>-->
+
         <td class="text-center">
             <a th:href="@{/products/view/{id}(id=${product.id})}"
                class="btn btn-sm btn-info me-1"
