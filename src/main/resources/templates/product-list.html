@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestion des produits</title>
+    <style>
+        table, th, td { border: 1px solid black; border-collapse: collapse; padding: 8px; }
+    </style>
+
+</head>
+<body>
+<h1>Liste des produits</h1>
+<table>
+    <thead>
+    <tr><th>ID</th><th>Nom</th><th>Prix</th><th>Description</th><th>Action</th></tr>
+    </thead>
+    <!--    <tbody>-->
+    <!--    <tr th:each="product : ${products}">-->
+    <!--        <td th:text="${product.id}"></td>-->
+    <!--        <td th:text="${product.name}"></td>-->
+    <!--        <td th:text="${product.price}"></td>-->
+    <!--        <td th:text="${product.description}"></td>-->
+    <!--        <td><a th:href="@{/products/delete/{id}(id=${product.id})}">Supprimer</a></td>-->
+    <!--    </tr>-->
+    <!--    </tbody>-->
+    <tbody>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.id}" class="fw-bold"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.description}"></td>
+<!--        <td>-->
+<!--            <a th:href="@{/products/edit/{id}(id=${product.id})}"-->
+<!--               class="btn btn-warning btn-sm">Modifier</a>-->
+<!--            <a th:href="@{/products/delete/{id}(id=${product.id})}"-->
+<!--               class="btn btn-danger btn-sm"-->
+<!--               onclick="return confirm('Supprimer ce produit ?');">Supprimer</a>-->
+<!--        </td>-->
+        <td class="text-center">
+            <a th:href="@{/products/view/{id}(id=${product.id})}"
+               class="btn btn-sm btn-info me-1"
+               title="Voir détails">
+                <i class="bi bi-eye"></i> Voir
+            </a>
+            <a th:href="@{/products/edit/{id}(id=${product.id})}"
+               class="btn btn-sm btn-warning me-1"
+               title="Modifier">
+                <i class="bi bi-pencil-square"></i> Modifier
+            </a>
+            <a th:href="@{/products/delete/{id}(id=${product.id})}"
+               class="btn btn-sm btn-danger"
+               onclick="return confirm('Supprimer ce produit ?');"
+               title="Supprimer">
+                <i class="bi bi-trash3"></i> Supprimer
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Ajouter un produit</h2>
+<form action="#" th:action="@{/products/add}" th:object="${newProduct}" method="post">
+    <label>Nom: <input type="text" th:field="*{name}" required/></label><br/>
+    <label>Prix: <input type="number" step="0.01" th:field="*{price}" required/></label><br/>
+    <label>Description: <input type="text" th:field="*{description}"/></label><br/>
+    <button type="submit">Ajouter</button>
+</form>
+</body>
+</html>
